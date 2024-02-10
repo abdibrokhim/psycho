@@ -70,7 +70,8 @@ class _SignInScreenState extends State<SignInScreen> {
           return const SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.all(20),
-              child:
+              child: Center(
+                child:
             Column(
               children: [
                
@@ -81,6 +82,7 @@ child:
                 ),
                 SizedBox(height: 20,),
               ],
+            ),
             ),
             ),
           );

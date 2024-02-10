@@ -87,20 +87,8 @@ class _HomeScreenState extends State<HomeScreen> {
         builder: (context, userState) {
           return 
         Scaffold(
-          appBar: AppBar(
-            leading: const Icon(Icons.menu_rounded),
-            actions: [
-              IconButton(
-                icon: const Icon(Icons.person_2_rounded),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const ProfileScreen()),
-                  );
-                },
-              ),
-            ],
-          ),
+             appBar: AppBar(
+        ),
           body: Refreshable(
             refreshController: _refreshController,
             onRefresh: _onRefresh,

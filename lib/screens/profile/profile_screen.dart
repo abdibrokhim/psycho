@@ -37,9 +37,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return
       Scaffold(
         appBar: AppBar(
-          leading: IconButton(onPressed: () { 
-            Navigator.pop(context);
-          }, icon: const Icon(Icons.arrow_back_rounded),)
         ),
         body: StoreConnector<GlobalState, UserState>(
         converter: (store) => store.state.appState.userState,
