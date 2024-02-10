@@ -19,19 +19,8 @@ class TopResourcesList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
           return 
-        Scaffold(
-          body: 
-
-          Padding(
-              padding: const EdgeInsets.all(20),
-              child:
-          Column(
-            children: [
-              const Text('Top Resources List'),
-             
-            ],
-          )
-          )
-      );
+    Expanded(
+      child: Text('TopResourcesList'),
+    );
   }
 }

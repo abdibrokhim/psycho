@@ -100,9 +100,9 @@ class _HomeScreenState extends State<HomeScreen> {
               child:
           Column(
             children: [
-             
-              const SizedBox(height: 32.0,),
 
+              Text('Top Psychologists', style: Theme.of(context).textTheme.headline6),
+             
               // TODO: psychos
 
                        userState.isPsychosListLoading
@@ -111,8 +111,14 @@ class _HomeScreenState extends State<HomeScreen> {
             :
           Expanded(
             child: 
-              const PsychosList()
+              PsychosList(psychosList: userState.psychosList)
           ),
+
+          // add Divider
+          const Divider(),
+
+
+          Text('Available Sessions', style: Theme.of(context).textTheme.headline6),
 
           // TODO: upcoming sessions
                        userState.isUpcomingSessionsListLoading
@@ -121,18 +127,9 @@ class _HomeScreenState extends State<HomeScreen> {
             :
           Expanded(
             child: 
-              const UpcomingSessionsList()
+              UpcomingSessionsList(upcomingSessionsList: userState.upcomingSessionsList)
           ),
 
-          // TODO: top resources
-                       userState.isTopResourcesListLoading
-            ? Center(child: SizedBox(
-              child:const CircularProgressIndicator()))
-            :
-          Expanded(
-            child: 
-              const TopResourcesList()
-          )
             ],
           )
           )

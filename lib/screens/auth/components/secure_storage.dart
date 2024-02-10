@@ -2,10 +2,8 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 
 class StorageService {
-  static Future<void> storeAccess(String accessToken, String refreshToken, int userId) async {
-    await addNewItemToKeyChain("accessToken", accessToken);
-    await addNewItemToKeyChain("refreshToken", refreshToken);
-    await addNewItemToKeyChain("userId", userId.toString());
+  static Future<void> storeAccess(String uuid) async {
+    await addNewItemToKeyChain("uuid", uuid.toString());
   }
 
   static Future<void> addNewItemToKeyChain(String key, String value) async {
@@ -52,18 +50,7 @@ class StorageService {
         );
     try {
       await storage.delete(
-        key: "accessToken",
-        iOptions: getIOSOptions(),
-        aOptions: getAndroidOptions(),
-      );
-
-      await storage.delete(
-        key: "refreshToken",
-        iOptions: getIOSOptions(),
-        aOptions: getAndroidOptions(),
-      );
-      await storage.delete(
-        key: "userId",
+        key: "uuid",
         iOptions: getIOSOptions(),
         aOptions: getAndroidOptions(),
       );

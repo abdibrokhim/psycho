@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:psycho/screens/auth/components/secure_storage.dart';
 import 'package:psycho/shared/custom_notification.dart';
 import 'package:psycho/shared/toast.dart';
 
@@ -53,7 +54,7 @@ class FirebaseAuthService {
         print("emailVerified: $emailVerified");
         print("refreshToken2: $refreshToken2");
 
-        showToast(message: 'Error while signing in with google. Please try to sign in entering username and password', bgColor: getNotificationColor(NotificationColor.red), webBgColor: "red");
+        // showToast(message: 'Error while signing in with google. Please try to sign in entering username and password', bgColor: getNotificationColor(NotificationColor.red), webBgColor: "red");
 
         bool isAlreadySaved = await isUserSavedToCollection(user.uid);
 
@@ -68,6 +69,8 @@ class FirebaseAuthService {
             showToast(message: 'Error while saving user to collection', bgColor: getNotificationColor(NotificationColor.red), webBgColor: "red");
           }
         }
+
+        await StorageService.storeAccess(user.uid);
 
         
         return user;
