@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "355847621686",
+    "project_id": "rinnape-489bc",
+    "storage_bucket": "rinnape-489bc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:355847621686:android:e472c0e14857f8c0e11c97",
+        "android_client_info": {
+          "package_name": "com.example.psycho"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDstInf92lo5kQjXyJr5L1Qi1jBDcvLhwU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
