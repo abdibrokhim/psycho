@@ -27,6 +27,7 @@ class UpcomingSessionsList extends StatelessWidget {
               child:
           Column(
             children: [
+              const Text('Upcoming Sessions List'),
              
             ],
           )

@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     void reFetchData()  {
       print('reFetchData HomeScreen');
-      
+
           print('refetching psychos list');
         store.dispatch(FetchAllPsychosList());
 
@@ -117,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
               // TODO: psychos
 
-                       userState.isMarketListLoading
+                       userState.isPsychosListLoading
             ? Center(child: SizedBox(
               child:const CircularProgressIndicator()))
             :
@@ -127,7 +127,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
 
           // TODO: upcoming sessions
-                       userState.isMarketListLoading
+                       userState.isUpcomingSessionsListLoading
             ? Center(child: SizedBox(
               child:const CircularProgressIndicator()))
             :
@@ -137,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
 
           // TODO: top resources
-                       userState.isMarketListLoading
+                       userState.isTopResourcesListLoading
             ? Center(child: SizedBox(
               child:const CircularProgressIndicator()))
             :

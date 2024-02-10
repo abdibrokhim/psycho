@@ -27,6 +27,7 @@ class TopResourcesList extends StatelessWidget {
               child:
           Column(
             children: [
+              const Text('Top Resources List'),
              
             ],
           )

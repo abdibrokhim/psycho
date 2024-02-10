@@ -27,6 +27,7 @@ class PsychosList extends StatelessWidget {
               child:
           Column(
             children: [
+              const Text('Psychos List'),
              
             ],
           )

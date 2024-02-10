@@ -83,37 +83,6 @@ class FirebaseAuthService {
     }
   }
 
-  static final FirebaseAuth _auth = FirebaseAuth.instance;
-
-
-  static Future<User?> signUpWithEmailAndPassword(String email, String password) async {
-  
-    try {
-      UserCredential credential =await _auth.createUserWithEmailAndPassword(email: email, password: password);
-      print("FirebaseAuthService user id: ${credential.user!.uid}");
-      showToast(message: 'Successfully signed up', bgColor: getNotificationColor(NotificationColor.green), webBgColor: "green");
-
-      bool isSaved = await saveUserToCollection(credential.user!.uid, email);
-      
-      if (isSaved) {
-        showToast(message: 'Successfully saved user to collection', bgColor: getNotificationColor(NotificationColor.green), webBgColor: "green");
-      } else {
-        showToast(message: 'Error while saving user to collection', bgColor: getNotificationColor(NotificationColor.red), webBgColor: "red");
-      }
-
-      return credential.user;
-    } on FirebaseAuthException catch (e) {
-
-      if (e.code == 'email-already-in-use') {
-        showToast(message: 'The email address is already in use.', bgColor: getNotificationColor(NotificationColor.red), webBgColor: "red");
-      } else {
-        showToast(message: 'An error occurred: ${e.code}', bgColor: getNotificationColor(NotificationColor.red), webBgColor: "red");
-      }
-    }
-    return null;
-
-  }
-
 
   static Future<bool> saveUserToCollection(String userId, String email) async {
     print('saveUserToCollection');
@@ -146,30 +115,5 @@ class FirebaseAuthService {
     }
   }
 
-  static Future<User?> signInWithEmailAndPassword(String email, String password) async {
-    print('signInWithEmailAndPassword');
-    
-
-    try {
-      UserCredential credential =await _auth.signInWithEmailAndPassword(email: email, password: password);
-      print("FirebaseAuthService user id: ${credential.user!.uid}");
-      showToast(message: 'Successfully signed in', bgColor: getNotificationColor(NotificationColor.green), webBgColor: "green");
-      return credential.user;
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found' || e.code == 'wrong-password') {
-        showToast(message: 'Invalid email or password.', bgColor: getNotificationColor(NotificationColor.red), webBgColor: "red");
-      } else {
-        showToast(message: 'An error occurred: ${e.code}', bgColor: getNotificationColor(NotificationColor.red), webBgColor: "red");
-      }
-
-    }
-    return null;
-
-  }
-
-  static Future<void> signOut() async {
-    FirebaseAuth _auth = FirebaseAuth.instance;
-    await _auth.signOut();
-  }
 
 }
