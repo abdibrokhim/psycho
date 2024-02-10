@@ -117,6 +117,7 @@ class UpcomingSessionsList extends StatelessWidget {
                   child: const Text('Book session'),
                 ),
 
+
           ],
         ),
       ),
